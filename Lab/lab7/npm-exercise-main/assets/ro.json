@@ -1,0 +1,14 @@
+{
+	"greeting": {
+		"text": "Salut",
+		"color": "blue"
+	},
+	"person": {
+		"text": "Prieteni",
+		"color": "yellow"
+	},
+	"punctuation": {
+		"text": "!",
+		"color": "red"
+	}
+}
