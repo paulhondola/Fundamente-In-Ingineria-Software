@@ -2,10 +2,36 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '0.1.0-SNAPSHOT'
+'group = org.example'
+'version = 0.1.0-SNAPSHOT'
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+}
+
+dependencies {
+    //  You could also use the shorter notation:
+    //  implementation 'org.fusesource.jansi:jansi:2.4.0'
+    implementation group: 'org.fusesource.jansi', name: 'jansi', version: '2.4.0'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+plugins {
+    id 'java'
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+}
+
+application {
+    // Define the main class for the application.
+    mainClassName = 'org.example.Main'
 }
