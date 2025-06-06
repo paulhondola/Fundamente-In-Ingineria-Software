@@ -88,7 +88,7 @@ class MathChampionshipTest {
         readScoresFromCsv("student_scores.csv");
 
         // Act
-        Prize prize = mathChampionship.getPrize("Jane Doe");
+        Prize prize = mathChampionship.getPrize("John Doe");
 
         // Assert
         assertEquals(Prize.GOLD, prize);
